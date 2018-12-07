@@ -40,3 +40,4 @@ bin/
 
 # npm, webpack ignores
 node_modules/
+Dist/
