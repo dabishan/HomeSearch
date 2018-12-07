@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+	<info>
+		<package>
+			<name>HomeSearch</name>
+			<version>0.0.1</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://newlandco.com</url>
+			<requirements>
+				<major>7</major>
+				<minor>8</minor>
+				<patch>1</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>Newland Communities</name>
+			<website>http://newlandco.com</website>
+		</author>
+        <readme>
+          <![CDATA[HomeSearch Modules]]>
+        </readme>
+	</info>
+
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros />
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+    	<Actions>
+      </Actions>
+	<control />
+	<files />
+
+</umbPackage>

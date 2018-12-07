@@ -1,0 +1,25 @@
+﻿{
+  "gridEditors": 
+  [
+    {
+      "name": "HomeSearch",
+      "alias": "HomeSearch",
+      "view": "/App_Plugins/DocTypeGridEditor/Views/doctypegrideditor.html",
+      "render": "/App_Plugins/DocTypeGridEditor/Render/DocTypeGridEditor.cshtml",
+      "icon": "icon-binarycode",
+      "config": 
+      {
+        "allowedDocTypes": 
+        [
+          "HomeSearch"
+        ],
+        "nameTemplate": "",
+        "enablePreview": true,
+        "viewPath": "~/app_plugins/HomeSearch/Views/",
+        "previewViewPath": "~/app_plugins/HomeSearch/Views/Previews/",
+        "previewCssFilePath": "",
+        "previewJsFilePath": ""
+      }
+    }
+  ]
+} 

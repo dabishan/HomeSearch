@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildPackage", "BuildPackage", "{35134CA1-6396-4AA8-AD4F-D38319C79B54}"
+	ProjectSection(SolutionItems) = preProject
+		BuildPackages\Package.build.cmd = BuildPackages\Package.build.cmd
+		BuildPackages\Package.build.xml = BuildPackages\Package.build.xml
+		BuildPackages\Package.xml = BuildPackages\Package.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeSearch", "HomeSearch\HomeSearch.csproj", "{2F1494AC-E9FA-463D-8658-1E66D40B6E97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F1494AC-E9FA-463D-8658-1E66D40B6E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F1494AC-E9FA-463D-8658-1E66D40B6E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F1494AC-E9FA-463D-8658-1E66D40B6E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F1494AC-E9FA-463D-8658-1E66D40B6E97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
