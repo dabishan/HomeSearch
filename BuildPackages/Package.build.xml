@@ -76,15 +76,16 @@
 
   <!-- PREPARE FILES -->
 	<Target Name="PrepareFiles" DependsOnTargets="Compile">
-    
+	 	<!-- RUNS WEBPACK BUILD -->	 
+		<Exec Command="npm run build" />
+
     <ItemGroup>
       <PackageFile Include="$(RootDir)\Package.xml" />
       <BinFiles Include="$(CoreProjectDir)\bin\**\HomeSearch.dll" />
 	    <TransformBinFiles Include="$(CoreProjectDir)\bin\**\Microsoft.Web.XmlTransform.dll" />
 	    <ConfigFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\*.*" />
       <LangFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\lang\*.*" />
-      <ScriptsFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\js\*.*" />
-	    <StyleFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\css\*.*" />
+      <DistFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\Dist\*.*" />
 	    <ViewFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\Views\*.*" />
       <ImageFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\images\*.*" />
       <BackViewsFiles Include="$(CoreProjectDir)\App_Plugins\HomeSearch\backoffice\views\*.*" />
@@ -95,8 +96,7 @@
 	
     <Copy SourceFiles="@(ConfigFiles)" DestinationFolder="$(AppPluginUmbDir)" />
     <Copy SourceFiles="@(LangFiles)" DestinationFolder="$(AppPluginUmbDir)\lang\" />
-    <Copy SourceFiles="@(ScriptsFiles)" DestinationFolder="$(AppPluginUmbDir)\js\" />
-    <Copy SourceFiles="@(StyleFiles)" DestinationFolder="$(AppPluginUmbDir)\css\" />
+    <Copy SourceFiles="@(DistFiles)" DestinationFolder="$(AppPluginUmbDir)\dist\" />
     <Copy SourceFiles="@(ViewFiles)" DestinationFolder="$(AppPluginUmbDir)\Views\" />
     <Copy SourceFiles="@(ImageFiles)" DestinationFolder="$(AppPluginUmbDir)\images\" />
     <Copy SourceFiles="@(BackViewsFiles)" DestinationFolder="$(AppPluginUmbDir)\backoffice\views\" />
