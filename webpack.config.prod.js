@@ -1,32 +1,44 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: {
-    app:'./HomeSearch/App_Plugins/HomeSearch/App/index.js',
+    app: './HomeSearch/App_Plugins/HomeSearch/App/index.ts',
   },
+  mode: 'production',
   output: {
     path: path.resolve('./HomeSearch/App_Plugins/HomeSearch/Dist'),
     filename: '[name].bundle.js',
-    publicPath:'/'
+    publicPath: '/'
+  },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        // sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   },
   module: {
     rules: [
-      { 
-        test: /\.[css|sass|scss]$/,
-        use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-                { loader: "css-loader" },
-                { loader: "sass-loader" }
-            ]
-        })
-    },
-    {
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      },
+      {
         test: /\.(png|jpg|jpeg|svg)$/,
-        use: [{loader: "file-loader"}]
-    },
-    {
+        use: [{ loader: "file-loader" }]
+      },
+      {
+        test: /\.(ts|tsx)?$/,
+        exclude: /node_modules/,
+        use: "ts-loader"
+      },
+      {
         test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: "babel-loader"
@@ -34,6 +46,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].style.css')
+    new MiniCssExtractPlugin({ filename: '[name].style.css' })
   ]
 }

@@ -1,39 +1,38 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    app:'./HomeSearch/App_Plugins/HomeSearch/App/index.js',
+    app:'./HomeSearch/App_Plugins/HomeSearch/App/index.ts',
   },
+  mode: 'development',
   output: {
     path: path.resolve('./HomeSearch/App_Plugins/HomeSearch/Dist'),
     filename: '[name].bundle.js',
     publicPath:'/'
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
   module: {
     rules: [
       { 
         test: /\.[css|sass|scss]$/,
-        use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-                { loader: "css-loader" },
-                { loader: "sass-loader" }
-            ]
-        })
-    },
-    {
-        test: /\.(png|jpg|jpeg|svg)$/,
-        use: [{loader: "file-loader"}]
-    },
-    {
-        test: /\.(js|jsx)?$/,
-        exclude: /node_modules/,
-        use: "babel-loader"
+        use: ["style-loader", "css-loader", "sass-loader" ]
+      },
+      {
+          test: /\.(png|jpg|jpeg|svg)$/,
+          use: [{loader: "file-loader"}]
+      },
+      {
+          test: /\.(ts|tsx)?$/,
+          exclude: /node_modules/,
+          use: "ts-loader"
+      },
+      {
+          test: /\.(js|jsx)?$/,
+          exclude: /node_modules/,
+          use: "babel-loader"
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin('[name].style.css')
-  ]
+  }
 }
