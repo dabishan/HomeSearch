@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -6,17 +7,22 @@ module.exports = {
   },
   mode: 'development',
   output: {
-    path: path.resolve('./HomeSearch/App_Plugins/HomeSearch/Dist'),
-    filename: '[name].bundle.js',
-    publicPath:'/'
+    path: path.resolve('dist'),
+    filename: '[name].bundle.js'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      template: './HomeSearch/App_Plugins/HomeSearch/App/template.html'
+    })
+  ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   module: {
     rules: [
       { 
-        test: /\.[css|sass|scss]$/,
+        test: /\.(sa|sc|c)ss$/,
         use: ["style-loader", "css-loader", "sass-loader" ]
       },
       {
